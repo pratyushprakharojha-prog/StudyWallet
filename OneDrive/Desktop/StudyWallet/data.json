@@ -1,7 +1,7 @@
 {
-    "total_amount": 0,
-    "minimum_balance": 0,
-    "new_month_money": 0,
+    "total_amount": 5420.0,
+    "minimum_balance": 1000.0,
+    "new_month_money": 5000.0,
     "expenses": [],
     "stocks": []
 }

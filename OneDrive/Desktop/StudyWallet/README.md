@@ -1,31 +1,37 @@
-# StudyWallet 💰
+# StudyWallet 💰 — v2.0
 
-A Python CLI personal finance tracker built for college students. Track expenses, monitor your balance, and manage stock investments — all from the terminal.
+A web-based personal finance tracker built for college students. Track expenses, monitor your balance, and manage stock investments — all from a clean browser dashboard.
+
+> **v1.0** was a Python CLI. **v2.0** is a full Flask web app with live stock prices.
 
 ## Features
 
-- **Expense Tracking** — Add and categorize expenses (food, transport, entertainment, etc.)
-- **Balance Warnings** — Two-tier alert system that warns you when funds are running low
-- **Stock Investment Tracker** — Log investments and track profit/loss in real time
-- **Investment Advisor** — Get simple buy/sell suggestions based on your portfolio
-- **Monthly Report** — View a full summary of your spending by category
-- **Persistent Storage** — All data saved locally using JSON (no database needed)
-- **Colored Terminal Output** — Clean, readable interface using `colorama`
+- **Dashboard** — Visual overview with spending donut chart, live balance, and recent expenses
+- **Expense Tracking** — Add and categorize expenses (food, snacks, medicine, etc.) with delete support
+- **Two-Tier Balance Warnings** — Caution and danger alerts when funds run low
+- **Stock Investment Tracker** — Log investments; live prices auto-fetched via Yahoo Finance
+- **Investment Advisor** — Smart buy/sell suggestion based on portfolio P&L and balance
+- **Monthly Budget Setup** — Set pocket money and minimum safety balance
+- **Persistent Storage** — All data saved locally in JSON (no database needed)
 
 ## Project Structure
 
 ```
 StudyWallet/
-├── main.py       # Entry point and menu logic
-└── tracker.py    # Core logic: expenses, investments, reports
+├── app.py              # Flask backend + API routes
+├── tracker.py          # v1 CLI logic (kept for reference)
+├── main.py             # v1 CLI entry point (kept for reference)
+├── data.json           # Local data store
+├── requirements.txt
+└── templates/
+    └── index.html      # Single-page web dashboard
 ```
 
 ## Getting Started
 
 ### Prerequisites
 
-- Python 3.x
-- `colorama` library
+- Python 3.8+
 
 ### Installation
 
@@ -37,42 +43,32 @@ StudyWallet/
 
 2. Install dependencies:
    ```bash
-   pip install colorama
+   pip install -r requirements.txt
    ```
 
 3. Run the app:
    ```bash
-   python main.py
+   python app.py
    ```
 
-> **Note:** Run from Command Prompt (not VS Code terminal) for best experience on Windows.
-
-## Usage
-
-On launch, you'll see a menu to:
-- Add an expense with a category
-- View your current balance and warnings
-- Add or view stock investments
-- Generate a monthly spending report
+4. Open your browser at [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 ## Tech Stack
 
-- **Language:** Python
-- **Storage:** JSON files
-- **Libraries:** `colorama` for terminal colors
+| Layer     | Tech                              |
+|-----------|-----------------------------------|
+| Backend   | Python, Flask                     |
+| Frontend  | HTML, CSS, Vanilla JS             |
+| Charts    | Chart.js (CDN)                    |
+| Icons     | Font Awesome (CDN)                |
+| Storage   | JSON file                         |
+| Live Data | yfinance (Yahoo Finance API)      |
 
-## What I Learned
+## Stock Price Support
 
-- Structuring a Python project across multiple modules
-- Designing data persistence with JSON
-- Building a menu-driven CLI application
-- Tracking financial data with dictionaries and lists
-
-## Future Plans
-
-- GUI version using Tkinter or a web version with Flask
-- Budget goal setting per category
-- Export reports to CSV
+- Indian stocks: use NSE symbols (e.g. `RELIANCE`, `TCS`, `INFY`)
+- US stocks: use standard tickers (e.g. `AAPL`, `TSLA`)
+- Prices auto-fetched on the Stocks tab — no manual entry needed
 
 ## Author
 
@@ -80,4 +76,4 @@ On launch, you'll see a menu to:
 
 ---
 
-*Built as a portfolio project to practice Python fundamentals and software design.*
+*v1.0: Python CLI &nbsp;|&nbsp; v2.0: Flask Web App*
